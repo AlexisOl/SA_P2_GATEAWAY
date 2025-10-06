@@ -22,3 +22,15 @@ spring:
           uri: http://cine-service:8081
           predicates:
             - Path=/cine/**
+        - id: costos-cine-dev
+          uri: http://cine-service:8081
+          predicates:
+            - Path=/costoCine/**
+        - id: salas-dev
+          uri: http://cine-service:8081
+          predicates:
+            - Path=/salas/**
+        - id: snacks-dev
+          uri: http://cine-service:8081
+          predicates:
+            - Path=/snacks/**
