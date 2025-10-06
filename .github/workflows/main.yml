@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Java project
-        run: mvn clean package -DskipTests
+        run: mvn -f gateway/pom.xml clean package -DskipTests
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
