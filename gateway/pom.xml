@@ -86,6 +86,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <!-- Antrun para copiar configs -->
@@ -98,8 +105,8 @@
                         <configuration>
                             <target>
                                 <echo>Copiando las carpetas de configuración Docker</echo>
-                                <copy todir="${basedir}/target/config-dev-docker">
-                                    <fileset dir="${basedir}/src/main/resources/config-dev-docker"/>
+                                <copy todir="${basedir}/target/">
+                                    <fileset dir="${basedir}"/>
                                 </copy>
                             </target>
                         </configuration>

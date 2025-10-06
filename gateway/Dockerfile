@@ -1,4 +1,9 @@
-FROM ubuntu:latest
-LABEL authors="alexxus"
+FROM bellsoft/liberica-openjdk-alpine:21.0.3
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY target/mcsv-gateway.jar /app/mcsv-gateway.jar
+
+EXPOSE 8088
+
+ENTRYPOINT ["java", "-jar", "mcsv-gateway.jar"]

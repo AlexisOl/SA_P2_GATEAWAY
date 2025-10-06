@@ -6,7 +6,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8765/eureka/
+      defaultZone: http://eureka-service:8765/
 
 spring:
   application:
@@ -19,10 +19,6 @@ spring:
           lower-case-service-id: true
       routes:
         - id: cine-dev
-          uri: http://localhost:8081
+          uri: http://cine-service:8081
           predicates:
             - Path=/cine/**
-        - id: usuarios-dev
-          uri: http://localhost:8082
-          predicates:
-            - Path=/usuarios/**
