@@ -34,3 +34,7 @@ spring:
           uri: http://cine-service:8081
           predicates:
             - Path=/snacks/**
+        - id: anuncios-dev
+          uri: http://anuncios-service:8084
+          predicates:
+            - Path=/anuncios/**
