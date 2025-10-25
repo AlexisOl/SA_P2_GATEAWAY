@@ -37,4 +37,16 @@ spring:
         - id: anuncios-dev
           uri: http://anuncios-service:8084
           predicates:
-            - Path=/anuncios/**
+            - Path=/anuncio/**
+        - id: materialAnuncio-dev
+          uri: http://anuncios-service:8084
+          predicates:
+            - Path=/materialAnuncio/**
+        - id: propiedadAnuncio-dev
+          uri: http://anuncios-service:8084
+          predicates:
+            - Path=/propiedadAnuncio/**
+        - id: bloqueoAnuncios-dev
+          uri: http://cine-service:8081
+          predicates:
+            - Path=/bloqueoAnuncios/**
