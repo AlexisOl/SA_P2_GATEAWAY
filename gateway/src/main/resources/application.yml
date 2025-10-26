@@ -50,3 +50,30 @@ spring:
           uri: http://cine-service:8081
           predicates:
             - Path=/bloqueoAnuncios/**
+        - id: categorias-dev
+          uri: http://movies-service:8082
+          predicates:
+            - Path=/api/v1/categorias/**
+        - id: horarios-dev
+          uri: http://movies-service:8082
+          predicates:
+            - Path=/api/v1/horarios/**
+        - id: peliculas-dev
+          uri: http://movies-service:8082
+          predicates:
+            - Path=/api/v1/peliculas/**     
+        - id: peliculas-dev
+          uri: http://movies-service:8082
+          predicates:
+            - Path=/api/v1/peliculas/**     
+        - id: detalle-categoria-dev
+          uri: http://movies-service:8082
+          predicates:
+            - Path=/api/v1/posters/**   
+        - id: posters-dev
+          uri: http://movies-service:8082
+          predicates:
+            - Path=/api/v1/posters/**               
+
+
+          
