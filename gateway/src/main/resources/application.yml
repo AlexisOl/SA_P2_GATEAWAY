@@ -77,11 +77,11 @@ spring:
         - id: auth-dev
           uri: http://usuarios-service:8083
           predicates:
-            - Path=/api/v1/auth/**  
+            - Path=/v1/auth/**  
         - id: users-dev
           uri: http://usuarios-service:8083
           predicates:
-            - Path=/api/v1/users/**  
+            - Path=/v1/users/**  
 
 
 
