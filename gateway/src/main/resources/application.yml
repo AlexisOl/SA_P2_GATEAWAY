@@ -109,4 +109,13 @@ spring:
         - id: ventas-snacks-dev
           uri: http://ventas-service:8090
           predicates:
-            - Path=/api/ventas/venta-snacks/**         
+            - Path=/api/ventas/venta-snacks/**    
+        - id: promociones-promociones-dev
+          uri: http://promociones-service:8092
+          predicates:
+            - Path=/api/promociones/promociones/**    
+
+
+
+
+            
