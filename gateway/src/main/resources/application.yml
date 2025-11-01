@@ -94,6 +94,19 @@ spring:
           uri: http://calificaciones-service:8091
           predicates:
             - Path=/api/calificaciones/snacks/**  
- 
-
-          
+        - id: ventas-asientos-dev
+          uri: http://ventas-service:8090
+          predicates:
+            - Path=/api/ventas/asientos/**  
+        - id: ventas-boletos-dev
+          uri: http://ventas-service:8090
+          predicates:
+            - Path=/api/ventas/boletos/**  
+        - id: ventas-ventas-dev
+          uri: http://ventas-service:8090
+          predicates:
+            - Path=/api/ventas/ventas/**            
+        - id: ventas-snacks-dev
+          uri: http://ventas-service:8090
+          predicates:
+            - Path=/api/ventas/venta-snacks/**         
