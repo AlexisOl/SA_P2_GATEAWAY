@@ -82,7 +82,18 @@ spring:
           uri: http://usuarios-service:8083
           predicates:
             - Path=/v1/users/**  
-
-
+        - id: calificaciones-peliculas-dev
+          uri: http://calificaciones-service:8091
+          predicates:
+            - Path=/api/calificaciones/peliculas/**  
+        - id: calificaciones-salas-dev
+          uri: http://calificaciones-service:8091
+          predicates:
+            - Path=/api/calificaciones/salas/**  
+        - id: calificaciones-snacks-dev
+          uri: http://calificaciones-service:8091
+          predicates:
+            - Path=/api/calificaciones/snacks/**  
+ 
 
           
