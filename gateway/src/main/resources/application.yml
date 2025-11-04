@@ -54,6 +54,10 @@ spring:
           uri: http://movies-service:8082
           predicates:
             - Path=/api/v1/categorias/**
+        - id: detalle-categorias-dev
+          uri: http://movies-service:8082
+          predicates:
+            - Path=/api/v1/detalle-categoria/**
         - id: horarios-dev
           uri: http://movies-service:8082
           predicates:
