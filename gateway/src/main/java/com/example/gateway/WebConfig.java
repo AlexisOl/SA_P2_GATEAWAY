@@ -52,37 +52,21 @@ public class WebConfig {
         return new CorsWebFilter(source);
     }
 
-    @Bean
-    SecurityFilterChain filterChain(HttpSecurity http, JwtService jwt) throws Exception {
-      //  http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
-
-        http.csrf(csrf -> csrf.disable());
-        http.sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-   //    http.cors(c -> c.configurationSource(corsSource()));
-        
-        http.authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers("/v1/auth/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/v1/users/**").permitAll()
-                .anyRequest().authenticated()
-        );
-        http.addFilterBefore(new JwtAuthFilter(jwt), UsernamePasswordAuthenticationFilter.class);
-        return http.build();
-
-    }
-
-        @Bean
-    public OpenAPI customOpenAPI() {
-        final String securitySchemeName = "bearerAuth";
-
-        return new OpenAPI()
-            .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
-            .components(new Components()
-                .addSecuritySchemes(securitySchemeName,
-                    new SecurityScheme()
-                        .name(securitySchemeName)
-                        .type(SecurityScheme.Type.HTTP)
-                        .scheme("bearer")
-                        .bearerFormat("JWT")));
-    }
+    
+// @Bean
+// public WebFilter corsPreflightHandler() {
+//     return (exchange, chain) -> {
+//         if (exchange.getRequest().getMethod() == HttpMethod.OPTIONS) {
+//             var response = exchange.getResponse();
+//             response.getHeaders().add("Access-Control-Allow-Origin", exchange.getRequest().getHeaders().getOrigin());
+//             response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
+//             response.getHeaders().add("Access-Control-Allow-Headers", "Authorization, Content-Type, Origin, Accept");
+//             response.getHeaders().add("Access-Control-Allow-Credentials", "true");
+//             response.setStatusCode(org.springframework.http.HttpStatus.OK);
+//             return Mono.empty(); 
+//         }
+//         return chain.filter(exchange);
+//     };
+// }
 
 }
