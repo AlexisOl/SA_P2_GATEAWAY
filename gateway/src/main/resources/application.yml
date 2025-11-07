@@ -118,7 +118,10 @@ spring:
           uri: http://promociones-service:8092
           predicates:
             - Path=/api/promociones/promociones/**    
-
+        - id: dw-dev
+          uri: http://datawarehouse-service:8087
+          predicates:
+            - Path=/api/reportes/**    
 
 
 
