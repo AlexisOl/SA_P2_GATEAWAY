@@ -26,4 +26,20 @@ public class WebConfig {
 
         return new CorsWebFilter(source);
     }
+
+    
+@Bean
+public WebFilter corsPreflightHandler() {
+    return (exchange, chain) -> {
+        if (exchange.getRequest().getMethod() == HttpMethod.OPTIONS) {
+            var response = exchange.getResponse();
+            response.getHeaders().add("Access-Control-Allow-Origin", exchange.getRequest().getHeaders().getOrigin());
+            response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
+            response.getHeaders().add("Access-Control-Allow-Headers", "Authorization, Content-Type, Origin, Accept");
+            response.getHeaders().add("Access-Control-Allow-Credentials", "true");
+            response.setStatusCode(org.springframework.http.HttpStatus.OK);
+            return Mono.empty(); 
+        }
+        return chain.filter(exchange);
+    };
 }
