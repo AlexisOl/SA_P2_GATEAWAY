@@ -43,3 +43,5 @@ public WebFilter corsPreflightHandler() {
         return chain.filter(exchange);
     };
 }
+
+}
