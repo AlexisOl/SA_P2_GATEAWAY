@@ -17,6 +17,7 @@ public class WebConfig {
         config.setAllowedOrigins(List.of("http://localhost:4200", 
                                         "http://40.233.27.238"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
+        config.setExposedHeaders(List.of("Authorization", "Content-Disposition"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
